@@ -1,4 +1,5 @@
-# Presentación · Lanzamiento Meta Ads · Neisstech
+# Presentación · Campaña Meta Ads (Neisstech)
 
-Presentación de 7 diapositivas (HTML estático) con la propuesta final, el ecosistema, los agentes de Nexor, las rutas del lead, la medición y las preguntas frecuentes.
-Navegación: flechas del teclado, deslizar o `#1`…`#7`. En móvil se lee en vertical. No contiene datos personales de leads ni credenciales.
+7 láminas para Bastián y César: propuesta, ecosistema, agentes, rutas del lead, medición, preguntas y lanzamiento.
+Estilo según el UI Style Guide v1.8 de Neisstech (paleta maestra, NT-TYPE-COMB-03, íconos NT-ICO e ilustración NT-ILL-3D-02).
+Lienzo de 1600 px escalado a la pantalla; navegación con flechas, teclado, #1…#7 y deslizamiento.

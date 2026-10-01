@@ -1,143 +1,96 @@
+// Navegación del deck: flechas, teclado, hash (#1…#7), swipe y puntos. Animaciones al entrar a cada lámina.
 (() => {
-  const W = 1600, H = 900;
-  const root = document.documentElement;
-  if (location.search.includes('static')) root.classList.add('static');
-  const stage = document.getElementById('stage');
-  const slides = [...document.querySelectorAll('.slide')];
-  const secEl = document.getElementById('sec'), countEl = document.getElementById('count');
-  const bar = document.querySelector('#progress i');
-  const prevBtn = document.getElementById('prev'), nextBtn = document.getElementById('next');
-  let cur = 0, mobile = false;
-  const nf = new Intl.NumberFormat('es-CL');
-
-  slides.forEach(s => s.querySelectorAll('.a').forEach((el, i) => el.style.setProperty('--i', i)));
-
-  function countUp(el) {
-    const to = +el.dataset.to, dec = +(el.dataset.dec || 0), pre = el.dataset.pre || '', suf = el.dataset.suf || '';
-    const t0 = performance.now(), dur = 1500, delay = +(el.dataset.delay || 600);
-    const fmt = v => pre + (dec ? v.toFixed(dec).replace('.', ',') : nf.format(Math.round(v))) + suf;
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { el.textContent = fmt(to); return; }
-    el.textContent = fmt(0);
-    const step = t => {
-      const p = Math.min(1, (t - t0 - delay) / dur);
-      if (p > 0) el.textContent = fmt(to * (1 - Math.pow(1 - p, 3)));
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-    setTimeout(() => { el.textContent = fmt(to); }, delay + dur + 400);
-  }
-
-  function activate(s) {
-    void s.offsetWidth;
-    s.classList.add('active');
-    s.querySelectorAll('.count').forEach(countUp);
-  }
-
-  function updateChrome() {
-    const s = slides[cur];
-    stage.classList.toggle('dark', s.classList.contains('dark') || s.classList.contains('s1') || s.classList.contains('s7'));
-    secEl.textContent = s.dataset.sec || '';
-    countEl.textContent = `${cur + 1} / ${slides.length}`;
-    bar.style.width = ((cur + 1) / slides.length * 100) + '%';
-    prevBtn.disabled = cur === 0; nextBtn.disabled = cur === slides.length - 1;
-  }
-
-  function go(n, fromHash) {
-    n = Math.max(0, Math.min(slides.length - 1, n));
-    if (mobile) {
-      cur = n; updateChrome();
-      if (!fromHash) slides[n].scrollIntoView({ behavior: 'smooth', block: 'start' });
-      return;
-    }
-    slides[cur].classList.remove('active');
-    cur = n;
-    activate(slides[cur]);
-    updateChrome();
-    if (!fromHash) history.replaceState(null, '', '#' + (cur + 1));
-  }
-
+  const slides = [...document.querySelectorAll(".slide")];
+  const dots = document.getElementById("dots");
+  const count = document.getElementById("count");
+  const progress = document.getElementById("progress");
+  const prev = document.getElementById("prev");
+  const next = document.getElementById("next");
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const mobile = () => window.matchMedia("(max-width: 749px)").matches;
+  let current = 0;
+  // Lienzo fijo de 1600×900 escalado a la ventana (composición idéntica en cualquier pantalla de escritorio).
+  const stage = document.getElementById("stage");
   function fit() {
-    const wasMobile = mobile;
-    mobile = innerWidth < 900;
-    root.classList.toggle('m', mobile);
-    if (mobile) {
-      stage.style.transform = '';
-      if (!wasMobile) setupMobile();
-    } else {
-      const k = Math.min(innerWidth / W, innerHeight / H);
-      stage.style.transform = `translate(-50%, -50%) scale(${k})`;
-      if (wasMobile) { slides.forEach(s => s.classList.remove('active', 'vis')); activate(slides[cur]); updateChrome(); }
-    }
+    if (mobile()) { stage.style.transform = ""; stage.style.width = ""; stage.style.height = ""; return; }
+    // Ancho de diseño 1600 px; el alto se adapta a la proporción de la pantalla (16:9, 16:10…) para no dejar franjas.
+    const vw = window.innerWidth, vh = window.innerHeight, ratio = vh / vw;
+    const w = ratio >= 900 / 1600 ? 1600 : 900 / ratio, h = ratio >= 900 / 1600 ? 1600 * ratio : 900;
+    stage.style.width = `${w}px`;
+    stage.style.height = `${h}px`;
+    stage.style.transform = `translate(-50%, -50%) scale(${vw / w})`;
   }
-
-  let io = null;
-  function setupMobile() {
-    slides.forEach(s => s.classList.remove('active'));
-    io?.disconnect();
-    io = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          const s = e.target;
-          if (!s.classList.contains('vis')) { s.classList.add('vis'); s.querySelectorAll('.count').forEach(countUp); }
-          cur = slides.indexOf(s); updateChrome();
-        }
-      });
-    }, { threshold: 0.22 });
-    slides.forEach(s => io.observe(s));
-    updateChrome();
-  }
-
-  addEventListener('keydown', e => {
-    if (['ArrowRight', 'PageDown', ' ', 'Enter'].includes(e.key) && !mobile) { e.preventDefault(); go(cur + 1); }
-    if (['ArrowLeft', 'PageUp', 'Backspace'].includes(e.key) && !mobile) { e.preventDefault(); go(cur - 1); }
-    if (e.key === 'Home') go(0);
-    if (e.key === 'End') go(slides.length - 1);
-    if (e.key === 'f') document.documentElement.requestFullscreen?.();
-  });
-  nextBtn.onclick = () => go(cur + 1);
-  prevBtn.onclick = () => go(cur - 1);
-
-  let tx = null, ty = null;
-  addEventListener('touchstart', e => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
-  addEventListener('touchend', e => {
-    if (tx === null || mobile) { tx = null; return; }
-    const dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
-    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) go(cur + (dx < 0 ? 1 : -1));
-    tx = null;
-  });
-  addEventListener('resize', fit);
-  addEventListener('hashchange', () => go((parseInt(location.hash.slice(1)) || 1) - 1, true));
-
-  // FAQ: un clic resalta la respuesta
-  document.querySelectorAll('.q').forEach(q => q.addEventListener('click', () => {
-    const was = q.classList.contains('open');
-    document.querySelectorAll('.q.open').forEach(o => o.classList.remove('open'));
-    if (!was) q.classList.add('open');
-  }));
-
-  // Decisión final
-  const verdict = document.getElementById('verdict'), decide = document.querySelector('.decide');
-  function confetti() {
-    const box = document.createElement('div'); box.className = 'confetti';
-    const colors = ['#fff', '#7ad7ff', '#ffd25e', '#8be3b6', '#ff9ea6'];
-    for (let i = 0; i < 46; i++) {
-      const p = document.createElement('i');
-      p.style.left = Math.random() * 100 + '%'; p.style.background = colors[i % colors.length];
-      p.style.animationDelay = Math.random() * .6 + 's'; p.style.animationDuration = 1.8 + Math.random() * 1.4 + 's';
-      box.appendChild(p);
-    }
-    decide.appendChild(box); setTimeout(() => box.remove(), 4200);
-  }
-  document.getElementById('btn-go')?.addEventListener('click', () => {
-    verdict.textContent = '✓ Check dado. Se activa la campaña en pausa y el tópico de Telegram de Jacinta; el primer reporte llega en el siguiente horario (09:00 o 21:00).';
-    verdict.classList.add('show'); confetti();
-  });
-  document.getElementById('btn-adj')?.addEventListener('click', () => {
-    verdict.textContent = 'Anotado. Dinos qué ajustar (presupuesto, textos, horarios o reglas de María) y lo dejamos listo antes de activar.';
-    verdict.classList.add('show');
-  });
-
+  window.addEventListener("resize", fit);
   fit();
-  if (mobile) { setupMobile(); const n = (parseInt(location.hash.slice(1)) || 1) - 1; if (n > 0) setTimeout(() => slides[n]?.scrollIntoView(), 80); }
-  else go((parseInt(location.hash.slice(1)) || 1) - 1, true);
+
+  slides.forEach((slide, i) => {
+    const dot = document.createElement("button");
+    dot.className = "nav__dot";
+    dot.type = "button";
+    dot.setAttribute("aria-label", `Ir a la lámina ${i + 1}: ${slide.getAttribute("aria-label")}`);
+    dot.addEventListener("click", () => go(i));
+    dots.append(dot);
+  });
+
+  const fmt = (n, tipo) => (tipo === "clp" ? new Intl.NumberFormat("es-CL").format(n) : String(n));
+  function countUp(slide) {
+    slide.querySelectorAll("[data-count]").forEach((el) => {
+      const fin = Number(el.dataset.count), tipo = el.dataset.format;
+      if (reduce) { el.textContent = fmt(fin, tipo); return; }
+      const t0 = performance.now(), dur = 1200;
+      const paso = (t) => {
+        const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+        el.textContent = fmt(Math.round(fin * e), tipo);
+        if (k < 1) requestAnimationFrame(paso);
+      };
+      requestAnimationFrame(paso);
+    });
+  }
+
+  function go(i, fromHash = false) {
+    i = Math.max(0, Math.min(slides.length - 1, i));
+    if (mobile()) { slides[i].scrollIntoView({ behavior: reduce ? "auto" : "smooth" }); return; }
+    slides[current].classList.remove("is-active");
+    current = i;
+    const slide = slides[current];
+    // Reinicia las animaciones de entrada al volver a una lámina.
+    slide.querySelectorAll(".rv").forEach((el) => { el.style.animation = "none"; void el.offsetWidth; el.style.animation = ""; });
+    slide.classList.add("is-active");
+    document.body.classList.toggle("on-dark", slide.dataset.theme === "dark");
+    [...dots.children].forEach((d, k) => d.classList.toggle("is-active", k === current));
+    count.innerHTML = `<b>${String(current + 1).padStart(2, "0")}</b> / ${String(slides.length).padStart(2, "0")}`;
+    progress.style.width = `${((current + 1) / slides.length) * 100}%`;
+    prev.disabled = current === 0;
+    next.disabled = current === slides.length - 1;
+    countUp(slide);
+    if (!fromHash) history.replaceState(null, "", `#${current + 1}`);
+  }
+
+  prev.addEventListener("click", () => go(current - 1));
+  next.addEventListener("click", () => go(current + 1));
+  document.addEventListener("keydown", (e) => {
+    if (e.target.closest("summary, button") && (e.key === " " || e.key === "Enter")) return;
+    if (["ArrowRight", "PageDown", " "].includes(e.key)) { e.preventDefault(); go(current + 1); }
+    if (["ArrowLeft", "PageUp"].includes(e.key)) { e.preventDefault(); go(current - 1); }
+    if (e.key === "Home") go(0);
+    if (e.key === "End") go(slides.length - 1);
+  });
+  let x0 = null;
+  document.addEventListener("touchstart", (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+  document.addEventListener("touchend", (e) => {
+    if (x0 === null || mobile()) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 50) go(current + (dx < 0 ? 1 : -1));
+    x0 = null;
+  });
+  window.addEventListener("hashchange", () => go(Number(location.hash.slice(1)) - 1 || 0, true));
+
+  // Visto bueno: confirma sin recargar la página.
+  const cta = document.getElementById("cta");
+  document.getElementById("cta-btn").addEventListener("click", (e) => {
+    cta.classList.add("is-done");
+    e.currentTarget.textContent = "Visto bueno ✓";
+  });
+
+  go((Number(location.hash.slice(1)) || 1) - 1, true);
 })();

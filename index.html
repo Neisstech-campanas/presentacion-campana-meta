@@ -1,280 +1,263 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-CL">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex,nofollow">
-<title>Lanzamiento Meta Ads · Neisstech</title>
-<meta name="description" content="Propuesta final y ecosistema de la campaña de Meta Ads de Neisstech.">
-<link rel="icon" href="assets/logos/neisstech-isotype-blue.svg">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Neisstech · Campaña Meta Ads</title>
+  <link rel="icon" href="assets/brand/nt-iso-01.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- NT-TYPE-03 Inter (texto) · Inter Tight como respaldo de Neue Haas Grotesk Display (NT-TYPE-01, titulares) · NT-TYPE-02 Poppins (botones) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@800;900&family=Poppins:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-<div id="viewport">
-<div id="stage">
+<body class="on-dark">
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none"><symbol id="nt-ico-001" viewBox="0 0 24 24"><path d="M4 17V7m5 10v-6m5 6V9m5 8V4M3 20h18"/><path d="m4 8 5-3 5 2 6-5"/></symbol><symbol id="nt-ico-002" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4v8l5 3"/></symbol><symbol id="nt-ico-004" viewBox="0 0 24 24"><path d="M4 19V5h16v14H4Z"/><path d="m7 15 3-3 2 2 5-6 2 2"/></symbol><symbol id="nt-ico-006" viewBox="0 0 24 24"><path d="M5 5h14v14H5zM8 9h8M8 13h5M8 17h7"/><path d="M8 5V3h8v2"/></symbol><symbol id="nt-ico-009" viewBox="0 0 24 24"><path d="M4 7h16v10H4z"/><path d="m4 8 8 6 8-6"/></symbol><symbol id="nt-ico-017" viewBox="0 0 24 24"><path d="M4 4h16v14H8l-4 3V4Z"/><path d="M8 9h8M8 13h5"/></symbol><symbol id="nt-ico-018" viewBox="0 0 24 24"><path d="M3 5h18v12H8l-5 4V5Z"/><circle cx="8" cy="11" r="1"/><circle cx="12" cy="11" r="1"/><circle cx="16" cy="11" r="1"/></symbol><symbol id="nt-ico-019" viewBox="0 0 24 24"><path d="M6 3h12v18H6z"/><path d="M9 7h6M9 11h6M9 15h4"/></symbol><symbol id="nt-ico-020" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-7 7-7s7 3 7 7"/></symbol><symbol id="nt-ico-021" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-7 7-7 2 0 4 .8 5.2 2.2M19 16v6m-3-3h6"/></symbol><symbol id="nt-ico-025" viewBox="0 0 24 24"><path d="M5 8a7 7 0 0 1 14 0v6l2 3H3l2-3V8Z"/><path d="M9 20h6"/></symbol><symbol id="nt-ico-034" viewBox="0 0 24 24"><path d="M4 17h16v4H4zM6 17V8h12v9"/><path d="m8 8 4-5 4 5"/></symbol><symbol id="nt-ico-037" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></symbol><symbol id="nt-ico-038" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v6l4 2"/></symbol><symbol id="nt-ico-039" viewBox="0 0 24 24"><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/><circle cx="12" cy="12" r="9"/></symbol><symbol id="nt-ico-040" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 16v-4m4 4V8m4 8v-6"/></symbol><symbol id="nt-ico-031" viewBox="0 0 24 24"><path d="M3 4h18v16H3zM7 8h10M7 12h6M7 16h8"/></symbol><symbol id="nt-ico-003" viewBox="0 0 24 24"><path d="M4 18h16M6 18V9h4v9m4 0V5h4v13"/><path d="m5 7 4-3 4 2 5-4"/></symbol></svg>
+<div class="viewport"><div class="stage" id="stage">
+<div class="progress" id="progress" aria-hidden="true"></div>
 
-<div id="chrome">
-  <div class="brand"><img class="b" src="assets/logos/neisstech-logo-B.svg" alt="Neisstech"><img class="w" src="assets/logos/neisstech-logo-W.svg" alt=""></div>
-  <div id="sec"></div><div id="count"></div>
-  <button class="nav" id="prev" aria-label="Anterior">←</button><button class="nav" id="next" aria-label="Siguiente">→</button>
-  <div id="progress"><i></i></div>
-</div>
+<header class="topbar">
+  <img class="topbar__logo topbar__logo--color" src="assets/brand/nt-logo-01.svg" alt="Neisstech" />
+  <img class="topbar__logo topbar__logo--white" src="assets/brand/nt-logo-02.svg" alt="" aria-hidden="true" />
+  <div class="topbar__meta"><span>Campaña Meta Ads · Octubre 2026</span><span class="topbar__count" id="count"><b>01</b> / 07</span></div>
+</header>
 
-<!-- ============ 1 · PROPUESTA ============ -->
-<section class="slide s1" data-sec="Propuesta final">
-  <div class="bg"></div><div class="orbs"><span></span><span></span><span></span></div>
-  <div class="grid">
-    <div>
-      <p class="eyebrow a">Propuesta final · lanzamiento Meta Ads</p>
-      <h1 class="a">Una campaña que optimiza al botón <em>Enviar</em></h1>
-      <p class="lead a">Cada vez que alguien envía el formulario de nuestras landings, Meta lo cuenta como un <b>Lead</b>. Eso es lo que le pedimos que busque, y lo que medimos de punta a punta, hasta la reunión con Bastián.</p>
-      <div class="fixes">
-        <div class="fix a left"><b>1</b><span><s>El conjunto de Demarcación Virtual optimizaba a «visita de contenido»</s> → <strong>ahora optimiza a Lead</strong></span></div>
-        <div class="fix a left"><b>2</b><span><s>Los anuncios no llevaban UTM</s> → <strong>UTM por anuncio: sabremos qué anuncio trae cada lead</strong></span></div>
-        <div class="fix a left"><b>3</b><span><s>Un anuncio apuntaba a la ruta antigua /hologramas</s> → <strong>va directo a /demarcacion-virtual</strong></span></div>
+<main class="deck" id="deck">
+
+  <!-- 1 · PROPUESTA -->
+  <section class="slide slide--hero is-active" data-theme="dark" aria-label="Propuesta">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="slide__inner">
+      <p class="eyebrow rv" style="--d:0">Propuesta de lanzamiento</p>
+      <h1 class="title title--hero rv" style="--d:1">Un solo objetivo: <em>el botón Enviar</em></h1>
+      <p class="lead rv" style="--d:2">Campaña de Meta Ads para Pintura industrial y Demarcación virtual. Meta busca a las personas con más probabilidad de completar el formulario.</p>
+      <div class="hero__fixes rv" style="--d:3" aria-label="Lo que corregimos de la campaña anterior">
+        <span class="pill"><svg class="ico"><use href="#nt-ico-037"/></svg>Optimiza a Lead, no a visitas</span>
+        <span class="pill"><svg class="ico"><use href="#nt-ico-037"/></svg>Cada anuncio con su origen (UTM)</span>
+        <span class="pill"><svg class="ico"><use href="#nt-ico-037"/></svg>Enlace directo a cada landing</span>
       </div>
-      <div class="prev-stats a">
-        <span>Campaña anterior (pausada, datos reales de Meta):</span>
-        <div><b class="count" data-to="472" data-pre="$"></b>gastados</div>
-        <div><b class="count" data-to="281"></b>impresiones</div>
-        <div><b class="count" data-to="8"></b>clics al enlace</div>
-        <div><b class="count" data-to="0"></b>leads</div>
-      </div>
-    </div>
-    <div class="camp-card a pop">
-      <div class="hd"><h3>Campaña nueva</h3><span class="tag">Lista para activar</span></div>
-      <div class="row"><img class="ico float" src="assets/icons3d/objective.png" alt=""><div><small>Objetivo</small><b>Leads · evento «Lead»</b><span>Se dispara al apretar «Enviar» en el formulario de la landing.</span></div></div>
-      <div class="row"><img class="ico float d2" src="assets/icons3d/paint.png" alt=""><div><small>Dos conjuntos de anuncios</small><b>Pintura industrial · Demarcación Virtual</b><span>Cada conjunto lleva a su propia landing.</span></div></div>
-      <div class="row"><img class="ico float d3" src="assets/icons3d/finance.png" alt=""><div><small>Presupuesto (propuesta)</small><b>$10.000 CLP diarios por conjunto</b><span>Igual que la campaña anterior: $20.000 al día en total. Ajustable en cualquier momento.</span></div></div>
-      <div class="row"><img class="ico float" src="assets/icons3d/global-coverage.png" alt=""><div><small>Público</small><b>Chile · 18 a 65 años · Advantage+</b><span>Meta ajusta quién ve el anuncio según quién se convierte en Lead.</span></div></div>
-      <div class="row"><img class="ico float d2" src="assets/icons3d/campaign.png" alt=""><div><small>Creativos</small><b>Los mismos 4 anuncios</b><span>Mismos textos, títulos y diseños de la campaña anterior.</span></div></div>
-      <div class="status-pill"><i></i>Creada en pausa: se activa solo tras el check</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 2 · ECOSISTEMA ============ -->
-<section class="slide" data-sec="Ecosistema">
-  <p class="eyebrow a">El ecosistema completo</p>
-  <h2 class="title a">Del anuncio a la reunión, <em>todo conectado y medido</em></h2>
-  <div class="pipe">
-    <div class="col">
-      <div class="step a"><i>1</i>Anuncio</div>
-      <div class="node a left"><div class="hd"><span class="lgchip"><i class="lg" style="--m:url(assets/logos/meta.svg);--c:#0866FF"></i></span><h4>Meta Ads</h4></div><p>2 conjuntos, 4 anuncios, cada uno con su UTM.</p><div class="mide">Mide: impresiones, clics y costo por lead</div></div>
-      <div class="node a left"><div class="hd"><span class="lgchip"><i class="lg" style="--m:url(assets/logos/meta.svg);--c:#0088cd"></i></span><h4>Píxel + API de conversiones</h4></div><p>El Lead viaja desde el navegador y desde el servidor con el mismo <code>event_id</code>, más las cookies <code>fbp</code>/<code>fbc</code> y el <code>fbclid</code>.</p><div class="mide">Meta aprende de cada Lead y no lo cuenta dos veces</div><span class="tag warn" style="margin-top:8px;font-size:12px;padding:5px 10px">API de conversiones: se verifica en la prueba</span></div>
-    </div>
-    <div class="arrow a"><i></i></div>
-    <div class="col">
-      <div class="step a"><i>2</i>Landing</div>
-      <div class="node a"><div class="hd"><span class="lgchip"><img src="assets/logos/neisstech-isotype-blue.svg" alt=""></span><h4>Landings Neisstech</h4></div><p>soluciones.neisstech.com/pintura y /demarcacion-virtual. Formulario corto; al enviar abre WhatsApp con el mensaje listo.</p><div class="mide">Mide: visitas, % que envía, evento Lead</div></div>
-      <div class="node a"><div class="hd"><img class="ico float" style="width:62px;height:62px" src="assets/icons3d/objective.png" alt=""><h4>Botón «Enviar» = Lead</h4></div><p>Es el comprador principal de la campaña: lo que Meta optimiza y lo que todos contamos igual.</p></div>
-    </div>
-    <div class="arrow a"><i></i></div>
-    <div class="col">
-      <div class="step a"><i>3</i>Registro</div>
-      <div class="node mini a"><div class="hd"><span class="lgchip"><i class="lg" style="--m:url(assets/logos/supabase.svg);--c:#3FCF8E"></i></span><div><h4>Supabase</h4><p>Respaldo de cada formulario</p></div></div></div>
-      <div class="node mini a"><div class="hd"><span class="lgchip"><i class="lg" style="--m:url(assets/logos/googlesheets.svg);--c:#34A853"></i></span><div><h4>Hoja de Google</h4><p>Registro legible para el equipo</p></div></div></div>
-      <div class="node mini a"><div class="hd"><span class="lgchip"><img src="assets/people/nexor.png" alt=""></span><div><h4>Nexor</h4><p>Crea el lead con su campaña y UTM</p></div></div></div>
-      <div class="node mini a"><div class="hd"><span class="lgchip"><img src="assets/logos/neisstech-isotype-blue.svg" alt=""></span><div><h4>CRM Neisstech</h4><p>Configuración → Campañas, sync cada minuto</p></div></div></div>
-    </div>
-    <div class="arrow a"><i></i></div>
-    <div class="col">
-      <div class="step a"><i>4</i>Atención</div>
-      <div class="node a"><div class="hd"><div class="avatar" style="width:50px;height:50px;font-size:21px">M</div><h4>María · Nexor</h4></div><p>Responde por WhatsApp, llama y escribe por correo. Califica al lead y agenda la reunión.</p>
-        <div style="display:flex;gap:10px;margin-top:10px"><span class="lgchip" style="width:42px;height:42px;border-radius:12px"><i class="lg" style="--m:url(assets/logos/whatsapp.svg);--c:#25D366;width:24px;height:24px"></i></span><span class="lgchip" style="width:42px;height:42px;border-radius:12px"><i class="lg" style="--m:url(assets/logos/phone.svg);--c:#056CF2;width:24px;height:24px"></i></span><span class="lgchip" style="width:42px;height:42px;border-radius:12px"><i class="lg" style="--m:url(assets/logos/gmail.svg);--c:#EA4335;width:24px;height:24px"></i></span></div>
-        <div class="mide">Mide: tiempo al primer contacto y % contactados</div></div>
-      <div class="node mini a"><div class="hd"><span class="lgchip"><img src="assets/people/nexor.png" alt=""></span><div><h4>3 modos de María</h4><p>Ads · Remarketing · Pre-reunión (detalle en la lámina 3)</p></div></div></div>
-    </div>
-    <div class="arrow a"><i></i></div>
-    <div class="col">
-      <div class="step a"><i>5</i>Cierre</div>
-      <div class="node mini a"><div class="hd"><span class="lgchip"><i class="lg" style="--m:url(assets/logos/googlecalendar.svg);--c:#4285F4"></i></span><div><h4>Reunión con Bastián</h4><p>Calendario + Meet, 60 min · Mide: reuniones agendadas</p></div></div></div>
-      <div class="node mini a"><div class="hd"><span class="lgchip"><i class="lg" style="--m:url(assets/logos/zoho.svg);--c:#E42527"></i></span><div><h4>Zoho CRM</h4><p>Contacto al agendar, vía Medula</p></div></div><div class="zoho-note">Decisión pendiente: hoy Nexor también puede crear el lead en Zoho apenas María lo atiende. Proponemos dejarlo solo al agendar.</div></div>
-      <div class="node mini a"><div class="hd"><span class="lgchip" style="padding:0"><img style="width:52px;height:52px;border-radius:50%" src="assets/people/jacinta.png" alt=""></span><div><h4>Jacinta · Telegram</h4><p>Aviso de reunión y reportes diarios</p></div></div></div>
-    </div>
-  </div>
-  <div class="medula-band a"><img src="assets/logos/medula.png" alt="Medula"><div><b>Medula · memoria compartida</b><br><span>Cada llamada, mensaje y ficha de campaña queda guardada por lead; los agentes la leen antes de hablar con alguien.</span></div></div>
-</section>
-
-<!-- ============ 3 · AGENTES ============ -->
-<section class="slide s3" data-sec="Agentes de Nexor">
-  <p class="eyebrow a">Quién atiende a los leads</p>
-  <h2 class="title a">Cuatro agentes de Nexor, <em>cada una con un rol claro</em></h2>
-  <div class="grid">
-    <div class="agents">
-      <div class="card agent a"><div class="hd"><div class="avatar">M</div><div><h4>María · Ads</h4><div class="rol">Recibe, califica y agenda</div></div></div>
-        <ul><li>Atiende a quien escribe por WhatsApp o pide que lo llamen</li><li>Califica con lo que dejó en el formulario y agenda la reunión técnica de 60 min con Bastián</li><li>Si no responde: pasa a Remarketing. Si agenda: pasa a Pre-reunión</li></ul>
-        <div class="chs"><i class="lg" style="--m:url(assets/logos/whatsapp.svg);--c:#25D366"></i><i class="lg" style="--m:url(assets/logos/phone.svg);--c:#056CF2"></i><i class="lg" style="--m:url(assets/logos/gmail.svg);--c:#EA4335"></i></div></div>
-      <div class="card agent a"><div class="hd"><div class="avatar">M</div><div><h4>María · Remarketing Ads</h4><div class="rol">Recupera a quien no respondió</div></div></div>
-        <ul><li>Entra a los 15 min si el lead no escribió, o cuando no hay respuesta</li><li>Cadencia de 7 días: llamada → WhatsApp → correo</li><li>Lunes a viernes 9–19 h y sábado 10–14 h</li></ul>
-        <div class="chs"><i class="lg" style="--m:url(assets/logos/whatsapp.svg);--c:#25D366"></i><i class="lg" style="--m:url(assets/logos/phone.svg);--c:#056CF2"></i><i class="lg" style="--m:url(assets/logos/gmail.svg);--c:#EA4335"></i></div></div>
-      <div class="card agent a"><div class="hd"><div class="avatar">M</div><div><h4>María · Pre-reunión</h4><div class="rol">Asegura que llegue a la reunión</div></div></div>
-        <ul><li>Confirma asistencia y recuerda día y hora</li><li>Recordatorios por WhatsApp 24 h y 1 h antes</li><li>Deja al lead con buena disposición para Bastián</li></ul>
-        <div class="chs"><i class="lg" style="--m:url(assets/logos/whatsapp.svg);--c:#25D366"></i><i class="lg" style="--m:url(assets/logos/phone.svg);--c:#056CF2"></i></div></div>
-      <div class="card agent a"><div class="hd"><div class="avatar">E</div><div><h4>Emilia · Seguimiento</h4><div class="rol">Cotizaciones y seguimiento comercial</div></div></div>
-        <ul><li>Retoma las conversaciones con cotización abierta</li><li>Envía la cotización en línea y avisa por WhatsApp o correo</li><li>Lee el contexto del lead en Zoho antes de hablar</li></ul>
-        <div class="chs"><i class="lg" style="--m:url(assets/logos/whatsapp.svg);--c:#25D366"></i><i class="lg" style="--m:url(assets/logos/phone.svg);--c:#056CF2"></i><i class="lg" style="--m:url(assets/logos/gmail.svg);--c:#EA4335"></i></div></div>
-    </div>
-    <div class="train a right">
-      <div style="display:flex;align-items:center;gap:12px"><img class="ico" style="width:46px;height:46px" src="assets/people/nexor.png" alt=""><h3>Cómo fueron entrenadas</h3></div>
-      <div class="sub">Se configuran en Nexor y leen la memoria de Medula.</div>
-      <div class="big"><b class="count" data-to="19.6" data-dec="1" data-suf=" mil"></b><span>caracteres de instrucciones solo en María · Ads (12 a 20 mil por modo)</span></div>
-      <div class="tl">
-        <div><i>1</i><span><b>Contexto de Neisstech:</b> metodología en gestión visual, flujos e intralogística y seguridad industrial; solo Chile; Bastián toma las reuniones.</span></div>
-        <div><i>2</i><span><b>Contexto del lead:</b> formulario, ficha de la campaña en Medula e historial. Manda lo que el lead dice.</span></div>
-        <div><i>3</i><span><b>Objeciones:</b> precio, presupuesto, falta de tiempo, proveedor actual, mala experiencia, pedir hablar con una persona.</span></div>
-        <div><i>4</i><span><b>Límites duros:</b> no inventa precios, plazos ni garantías; no narra lo que hace; si le preguntan, dice que es asistente virtual.</span></div>
-        <div><i>5</i><span><b>Canales y horarios:</b> WhatsApp corto, llamada con permiso, reuniones L–V 9–16 h, plantillas de WhatsApp para Meta.</span></div>
-        <div><i>6</i><span><b>Memoria en Medula:</b> cada llamada y conversación queda guardada por lead y la leen antes de contestar.</span></div>
-      </div>
-      <div class="note" style="margin-top:12px">Plantillas de WhatsApp: las de Emilia están aprobadas por Meta; al preparar esta presentación 9 de María seguían en revisión y, mientras, usa las ya aprobadas.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 4 · RUTAS ============ -->
-<section class="slide s4" data-sec="Rutas del lead">
-  <p class="eyebrow a">Qué le puede pasar a un lead</p>
-  <h2 class="title a">Todas las rutas posibles, <em>sin lead abandonado</em></h2>
-  <div class="flow">
-    <svg class="lk lk-l" viewBox="0 0 60 568" preserveAspectRatio="none" aria-hidden="true"><path id="pl1" class="dr" d="M0 284 C30 284 30 135 60 135"/><path id="pl2" class="dr" d="M0 284 C30 284 30 433 60 433"/><circle r="5" class="dot"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#pl1"/></animateMotion></circle><circle r="5" class="dot"><animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite"><mpath href="#pl2"/></animateMotion></circle></svg>
-    <svg class="lk lk-r" viewBox="0 0 40 568" preserveAspectRatio="none" aria-hidden="true"><path id="pr1" class="dr" d="M0 135 C20 135 20 284 40 284"/><path id="pr2" class="dr" d="M0 433 C20 433 20 284 40 284"/><circle r="5" class="dot"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#pr1"/></animateMotion></circle><circle r="5" class="dot"><animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite"><mpath href="#pr2"/></animateMotion></circle></svg>
-    <div class="card trigger a left"><img class="ico float" src="assets/icons3d/identification.png" alt=""><b>El lead envía el formulario</b><span>Se registra en Nexor y en el CRM con su campaña.</span><div class="decision">¿Escribe por WhatsApp en los primeros 15 min?</div></div>
-    <div class="lanes">
-      <div class="lane a"><span class="tg"><span class="tag ok">Sí escribe</span></span>
-        <h4><img class="ico" src="assets/icons3d/customer-service.png" alt="">María · Ads</h4>
-        <div class="sub">Conversa, califica y define cómo seguir</div>
-        <div class="steps">
-          <div class="stp"><b>Llamada ahora</b>Si lo pide, María llama. 3 h sin respuesta → Remarketing</div>
-          <div class="stp"><b>Llamada programada</b>Queda a la hora que eligió. 48 h sin respuesta → Remarketing</div>
-          <div class="stp"><b>Solo WhatsApp</b>Sigue por mensajes. 48 h sin respuesta → Remarketing</div>
-        </div></div>
-      <div class="lane rem a"><span class="tg"><span class="tag warn">No escribe</span></span>
-        <h4><img class="ico" src="assets/icons3d/time-management.png" alt="">A los 15 min → María · Remarketing</h4>
-        <div class="sub">Revisión cada 10 min, L–S 9–18 h; aplica a leads de hasta 60 h</div>
-        <div class="steps">
-          <div class="stp"><b>1 · Llamada</b>Primer intento enseguida</div>
-          <div class="stp"><b>2 · WhatsApp</b>Plantilla aprobada por Meta</div>
-          <div class="stp"><b>3 · Correo</b>También rescata si el teléfono está mal</div>
-          <div class="stp"><b>7 días</b>L–V 9–19 h · sáb 10–14 h</div>
-        </div></div>
-    </div>
-    <div class="outs">
-      <h5 class="a">Cómo termina</h5>
-      <div class="out win wide a right"><b>✓ Agenda reunión con Bastián</b>Pasa a Pre-reunión: invitación de calendario con Meet, recordatorios 24 h y 1 h, contacto en Zoho y aviso a Jacinta.</div>
-      <div class="out wait a right"><b>Sin respuesta</b>Ads → Remarketing; al cerrar los 7 días queda marcado.</div>
-      <div class="out wait a right"><b>Fuera de horario o fin de semana</b>Queda en espera hasta la próxima ventana.</div>
-      <div class="out stop a right"><b>Bajo el mínimo</b>No cumple el mínimo de proyecto; cierre amable.</div>
-      <div class="out stop a right"><b>Fuera de Chile</b>Solo operamos en Chile.</div>
-      <div class="out stop a right"><b>No interesado</b>Se detiene todo contacto.</div>
-      <div class="out stop a right"><b>No contactar</b>Se respeta y no se vuelve a escribir.</div>
-    </div>
-  </div>
-  <div class="caps a">
-    <div class="cap"><b class="count" data-to="15"></b><span>asignaciones por día a Remarketing, como máximo</span></div>
-    <div class="cap"><b class="count" data-to="5"></b><span>llamadas por pasada del sistema (cada minuto)</span></div>
-    <div class="cap"><b class="count" data-to="500"></b><span>leads contactados al mes incluidos en el plan de Nexor</span></div>
-    <div class="cap"><b>US$1</b><span>por cada lead contactado sobre los 500</span></div>
-  </div>
-</section>
-
-<!-- ============ 5 · MEDICIÓN ============ -->
-<section class="slide s5" data-sec="Medición y reportes">
-  <p class="eyebrow a">Cómo sabremos si funciona</p>
-  <h2 class="title a">Dos reportes diarios en <em>Telegram</em> y un CRM al minuto</h2>
-  <div class="grid">
-    <div>
-      <div class="tg-card a left">
-        <div class="tg-top"><img class="av" src="assets/people/jacinta.png" alt=""><div><b>Jacinta · tópico «Campañas Meta»</b><small>Todos los días 09:00 (Chile)</small></div><i class="lg" style="--m:url(assets/logos/telegram.svg)"></i></div>
-        <div class="bubble"><div class="when"><span>☀️ Resumen de la mañana</span><span>09:00</span></div>
-          <div class="l">Campañas activas: <code>[N]</code> · Gasto acumulado: <code>$[X]</code></div>
-          <div class="l">Leads: <code>[N]</code> · Costo por lead: <code>$[X]</code></div>
-          <div class="l">Embudo: contactados <code>[N]</code> · en conversación <code>[N]</code> · reuniones <code>[N]</code></div>
-          <div class="l">Mejor anuncio y conjunto · Alertas pendientes</div></div>
-        <div class="foot"><span class="tag ill">Ejemplo de formato, no son cifras reales</span></div>
-      </div>
-      <div class="tg-card a left">
-        <div class="tg-top"><img class="av" src="assets/people/jacinta.png" alt=""><div><b>Jacinta · tópico «Campañas Meta»</b><small>Todos los días 21:00 (Chile)</small></div><i class="lg" style="--m:url(assets/logos/telegram.svg)"></i></div>
-        <div class="bubble"><div class="when"><span>🌙 Cierre del día</span><span>21:00</span></div>
-          <div class="l">Leads del día por landing y por anuncio: <code>[N]</code></div>
-          <div class="l">Contactados <code>[N]</code> · reuniones agendadas <code>[N]</code></div>
-          <div class="l">Gasto del día <code>$[X]</code> · costo por lead del día <code>$[X]</code></div>
-          <div class="l">Alertas: sin respuesta, topes y fallas de sincronización</div></div>
-        <div class="foot"><span class="tag ill">Ejemplo de formato, no son cifras reales</span> <span class="tag warn">Se activa al lanzar</span></div>
+      <div class="metrics rv" style="--d:4">
+        <div class="metric"><strong data-count="2">2</strong><span>servicios: Pintura y Demarcación virtual</span></div>
+        <div class="metric"><strong>$<span data-count="10000" data-format="clp">10.000</span></strong><span>diarios por servicio</span></div>
+        <div class="metric"><strong>Chile</strong><span>18 a 65 años, público automático de Meta</span></div>
+        <div class="metric"><strong>Lead</strong><span>el evento que Meta optimiza</span></div>
       </div>
     </div>
-    <div class="dash">
-      <div class="mock a right"><div class="bar"><i></i><i></i><i></i><span>CRM Neisstech · Configuración → Campañas</span></div>
-        <div class="body"><div class="kp"><div><small>Leads</small><b></b></div><div><small>Contactados</small><b></b></div><div><small>Reuniones</small><b></b></div><div><small>Con atribución Meta</small><b></b></div></div>
-          <div class="bars" aria-hidden="true"><i style="--k:0;height:30%"></i><i style="--k:1;height:55%"></i><i style="--k:2;height:42%"></i><i style="--k:3;height:78%"></i><i style="--k:4;height:60%"></i><i style="--k:5;height:90%"></i><i style="--k:6;height:70%"></i><i style="--k:7;height:100%"></i></div>
-          <div class="cap-l">Una base tipo hoja por campaña, con actividad en vivo; filtra, ordena y descarga en CSV.</div></div></div>
-      <div class="mock nx a right"><div class="bar"><i></i><i></i><i></i><span>CRM Neisstech · Comercial → Nexor</span></div>
-        <div class="body"><div class="kp"><div><small>Solicitudes</small><b></b></div><div><small>Llamadas</small><b></b></div><div><small>Agentes activos</small><b></b></div><div><small>Reuniones</small><b></b></div></div>
-          <div class="fun"><div></div><div></div><div></div></div>
-          <div class="cap-l">Embudo TOFU → MOFU → BOFU y rendimiento de cada agente de Nexor.</div></div></div>
-      <div class="a right" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><span class="sync-pill"><i></i>Sincronizado minuto a minuto, 24/7</span><span class="tag ill">Vistas ilustrativas</span></div>
-      <div class="note a right">Medimos en cada paso: costo por lead en Meta, visitas y % que envía en la landing, tiempo al primer contacto en Nexor, reuniones agendadas y, con el tiempo, cuántos leads terminan en negocio en Zoho.</div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ 6 · FAQ ============ -->
-<section class="slide" data-sec="Preguntas frecuentes">
-  <p class="eyebrow a">Dudas que es normal tener</p>
-  <h2 class="title a">Preguntas frecuentes, <em>con respuestas honestas</em></h2>
-  <div class="faq">
-    <div class="card q a pop"><img class="ico" src="assets/icons3d/finance.png" alt=""><h4>¿Cuánto cuesta y cómo se controla?</h4><p>Propuesta: $10.000 diarios por conjunto ($20.000 en total). Meta cobra solo lo gastado y se puede pausar o bajar el presupuesto cuando queramos. Nexor cuesta US$500 al mes con 500 leads contactados incluidos.</p></div>
-    <div class="card q a pop"><img class="ico" src="assets/icons3d/customer-service.png" alt=""><h4>¿Quién contesta a los leads?</h4><p>María, una asistente virtual del equipo comercial: responde por WhatsApp, llama y escribe por correo. Si alguien pregunta, ella dice que es asistente virtual. Bastián toma la reunión.</p></div>
-    <div class="card q a pop"><img class="ico" src="assets/icons3d/time-management.png" alt=""><h4>¿Qué pasa si no escriben?</h4><p>A los 15 minutos entra Remarketing: llamada, WhatsApp y correo durante 7 días, en horario laboral. Si el teléfono está malo, el correo lo rescata.</p></div>
-    <div class="card q a pop"><img class="ico" src="assets/icons3d/calendar.png" alt=""><h4>¿Qué ve Bastián y cuándo entra?</h4><p>Le llega una invitación de calendario con Meet, de lunes a viernes entre 9 y 16 h, de 60 minutos y con al menos 4 horas de aviso. También le avisa Jacinta por Telegram.</p></div>
-    <div class="card q a pop"><img class="ico" src="assets/icons3d/project-management.png" alt=""><h4>¿Se puede pausar todo?</h4><p>Sí. Los anuncios se pausan en Meta y los agentes en Nexor, cada uno con un clic. El CRM sigue registrando lo que ya entró. Mientras no demos el check, la campaña nueva queda en pausa.</p></div>
-    <div class="card q a pop"><img class="ico" src="assets/icons3d/identification.png" alt=""><h4>¿Se contacta a alguien sin permiso?</h4><p>Solo a quien envía sus datos en el formulario. Quien dice «no contactar» o «no me interesa» se detiene y no se vuelve a escribir. Hay topes diarios y WhatsApp usa plantillas aprobadas por Meta.</p></div>
-    <div class="card q a pop"><img class="ico" src="assets/icons3d/analytics.png" alt=""><h4>¿Cómo sabremos que funciona?</h4><p>Con costo por lead, % contactados, tiempo al primer contacto y reuniones. Meta necesita unas semanas y un buen número de Leads para aprender, así que no se juzga en 2 o 3 días. No prometemos cifras.</p></div>
-    <div class="card q a pop"><img class="ico" src="assets/icons3d/documents.png" alt=""><h4>¿Qué datos se guardan y dónde?</h4><p>Nombre, empresa, cargo, teléfono y correo quedan en Supabase, la hoja de Google, Nexor y el CRM. A Meta le enviamos correo y teléfono cifrados (hash) y cookies de atribución, para medir y optimizar.</p></div>
-  </div>
-</section>
-
-<!-- ============ 7 · CIERRE ============ -->
-<section class="slide s7" data-sec="Lanzamiento">
-  <p class="eyebrow a">Plan de lanzamiento</p>
-  <h2 class="title a">Todo listo, falta su <em>check</em></h2>
-  <div class="grid">
-    <div class="ck a left"><h3><img class="ico" src="assets/icons3d/achievement.png" alt="">Ya está hecho</h3>
-      <ul>
-        <li><i>✓</i><span>Landings en producción con píxel y evento Lead</span></li>
-        <li><i>✓</i><span>María Ads, Remarketing y Pre-reunión activas en Nexor, con sus reglas y topes</span></li>
-        <li><i>✓</i><span>WhatsApp de María conectado y calendario de Bastián listo</span></li>
-        <li><i>✓</i><span>CRM: módulo Nexor y Campañas con sincronización minuto a minuto</span></li>
-        <li><i>✓</i><span>Campaña nueva armada en pausa, con los mismos creativos</span></li></ul></div>
-    <div class="ck a"><h3><img class="ico" src="assets/icons3d/project-launch.png" alt="">Falta para lanzar</h3>
-      <ul>
-        <li class="wip"><i>…</i><span>API de conversiones y cookies de Meta<small>En verificación con una prueba controlada</small></span></li>
-        <li class="todo"><i>!</i><span>Prueba real con César en la oficina<small>Formulario → WhatsApp → reunión → Zoho → Telegram</small></span></li>
-        <li class="todo"><i>!</i><span>Decidir Zoho<small>¿Contacto solo al agendar, o también al atender?</small></span></li>
-        <li class="todo"><i>!</i><span>Tópico de Telegram con los dos reportes<small>Se activa al lanzar</small></span></li>
-        <li class="todo"><i>!</i><span>Activar la campaña<small>Con su check</small></span></li></ul></div>
-    <div class="after a">
-      <h3>Qué pasa después del check</h3>
-      <div class="tlh">
-        <div class="st"><img class="ico float" src="assets/icons3d/project-launch.png" alt=""><b>Activamos la campaña</b><span>Meta revisa los anuncios antes de mostrarlos; puede tardar unas horas.</span></div>
-        <i class="ar"></i>
-        <div class="st"><img class="ico float d2" src="assets/icons3d/analytics.png" alt=""><b>Primer reporte</b><span>Jacinta lo envía en el siguiente 09:00 o 21:00.</span></div>
-        <i class="ar"></i>
-        <div class="st"><img class="ico float d3" src="assets/icons3d/calendar.png" alt=""><b>Revisión a los 7 días</b><span>Con resultados reales ajustamos presupuesto, anuncios y reglas.</span></div>
+  <!-- 2 · ECOSISTEMA -->
+  <section class="slide" aria-label="Ecosistema">
+    <div class="slide__inner">
+      <div class="head">
+        <div>
+          <p class="eyebrow rv" style="--d:0">01 · Ecosistema</p>
+          <h2 class="title rv" style="--d:1">Un recorrido, <em>cinco pasos</em></h2>
+          <p class="lead rv" style="--d:2">Cada persona que deja sus datos queda registrada y medida de punta a punta.</p>
+        </div>
+        <img class="head__art art3d float rv" style="--d:2" src="assets/i3d/integration.webp" alt="" aria-hidden="true" />
+      </div>
+      <div class="flow">
+        <div class="flow__line" aria-hidden="true"><i></i></div>
+        <span class="flow__lead" aria-hidden="true"></span>
+        <div class="step rv" style="--d:3"><div class="step__logo"><span class="step__num">1</span><img class="wide" src="assets/marcas/meta-logo.svg" alt="Meta" /></div><div><h3>Anuncio</h3><p>Píxel y servidor avisan a Meta de cada formulario.</p></div></div>
+        <div class="step rv" style="--d:4"><div class="step__logo"><span class="step__num">2</span><img src="assets/brand/nt-iso-01.svg" alt="Neisstech" /></div><div><h3>Formulario</h3><p>Landing de Pintura o de Demarcación virtual.</p></div></div>
+        <div class="step rv" style="--d:5"><div class="step__logo"><span class="step__num">3</span><img class="wide" src="assets/marcas/nexor-logo.webp" alt="Nexor" /></div><div><h3>María responde</h3><p>Por WhatsApp, llamada y correo.</p></div></div>
+        <div class="step rv" style="--d:6"><div class="step__logo"><span class="step__num">4</span><img src="assets/marcas/google-meet.svg" alt="Google Meet" /></div><div><h3>Reunión con Bastián</h3><p>Invitación con Google Meet en su calendario.</p></div></div>
+        <div class="step rv" style="--d:7"><div class="step__logo"><span class="step__num">5</span><img class="wide" src="assets/marcas/zoho.svg" alt="Zoho CRM" /></div><div><h3>Registro comercial</h3><p>El contacto queda en Zoho.</p></div></div>
+      </div>
+      <div class="base rv" style="--d:8">
+        <p>Todo se ve en el CRM de Neisstech, minuto a minuto<span>Cada cambio de estado queda registrado, con su origen y su campaña.</span></p>
+        <div class="base__logos">
+          <span class="chip"><img src="assets/brand/nt-iso-01.svg" alt="" />CRM Neisstech</span>
+          <span class="chip"><img src="assets/marcas/medula.webp" alt="" />Medula · memoria</span>
+          <span class="chip"><img src="assets/marcas/jacinta.webp" alt="" />Jacinta · Telegram</span>
+        </div>
       </div>
     </div>
-    <div class="decide a pop">
-      <img class="ico float" src="assets/icons3d/project-launch.png" alt="">
-      <h3>¿Lanzamos?</h3><p>Con su check activamos la campaña apenas termine la prueba con César.</p>
-      <div class="btns"><button class="btn go" id="btn-go">✓ Check: lanzar la campaña</button><button class="btn adj" id="btn-adj">Ajustar algo antes</button></div>
-      <div class="verdict" id="verdict" role="status" aria-live="polite"></div>
-      <div class="pause"><b>Cómo se pausa:</b> Ads Manager → campaña → pausar. En Nexor, cada agente se pausa con un interruptor. Se puede hacer en cualquier momento.</div>
-    </div>
-  </div>
-</section>
+  </section>
 
-</div>
-</div>
+  <!-- 3 · AGENTES -->
+  <section class="slide" aria-label="Agentes de Nexor">
+    <div class="slide__inner">
+      <div class="head">
+        <div>
+          <p class="eyebrow rv" style="--d:0">02 · Agentes de Nexor</p>
+          <h2 class="title rv" style="--d:1">Cuatro roles, <em>un mismo criterio</em></h2>
+          <p class="lead rv" style="--d:2">Asistentes virtuales de Neisstech. Cada uno cumple una etapa y le entrega el lead al siguiente.</p>
+        </div>
+        <img class="head__art art3d float rv" style="--d:2" src="assets/i3d/work-team.webp" alt="" aria-hidden="true" />
+      </div>
+      <div class="agents">
+        <article class="card agent--lead rv" style="--d:3">
+          <div class="agent__top"><span class="agent__avatar"><img src="assets/marcas/nexor-simbolo.webp" alt="" /></span><span class="agent__channels"><svg class="ico"><use href="#nt-ico-017"/></svg><svg class="ico"><use href="#nt-ico-019"/></svg></span></div>
+          <span class="agent__name">María · Ads</span><h3>Atiende y agenda</h3><p>Responde a quien escribe, califica el proyecto y agenda con Bastián.</p>
+        </article>
+        <article class="card rv" style="--d:4">
+          <div class="agent__top"><span class="agent__avatar"><img src="assets/marcas/nexor-simbolo.webp" alt="" /></span><span class="agent__channels"><svg class="ico"><use href="#nt-ico-019"/></svg><svg class="ico"><use href="#nt-ico-017"/></svg><svg class="ico"><use href="#nt-ico-009"/></svg></span></div>
+          <span class="agent__name">María · Remarketing</span><h3>Recupera</h3><p>Contacta a quien dejó sus datos y no escribió, durante 7 días.</p>
+        </article>
+        <article class="card rv" style="--d:5">
+          <div class="agent__top"><span class="agent__avatar"><img src="assets/marcas/nexor-simbolo.webp" alt="" /></span><span class="agent__channels"><svg class="ico"><use href="#nt-ico-017"/></svg><svg class="ico"><use href="#nt-ico-002"/></svg></span></div>
+          <span class="agent__name">María · Pre-reunión</span><h3>Asegura la asistencia</h3><p>Confirma la reunión y la recuerda 24 h y 1 h antes.</p>
+        </article>
+        <article class="card rv" style="--d:6">
+          <div class="agent__top"><span class="agent__avatar"><img src="assets/marcas/nexor-simbolo.webp" alt="" /></span><span class="agent__channels"><svg class="ico"><use href="#nt-ico-019"/></svg><svg class="ico"><use href="#nt-ico-009"/></svg></span></div>
+          <span class="agent__name">Emilia · Seguimiento</span><h3>Cierra el ciclo</h3><p>Hace el seguimiento comercial y envía la cotización.</p>
+        </article>
+      </div>
+      <div class="training rv" style="--d:7">
+        <span class="training__label">Cómo se entrenaron</span>
+        <div class="rule"><svg class="ico"><use href="#nt-ico-031"/></svg><span>Conocen Neisstech: gestión visual, flujos e intralogística y seguridad industrial.</span></div>
+        <div class="rule"><svg class="ico"><use href="#nt-ico-004"/></svg><span>Antes de hablar leen la campaña de origen y lo que el lead escribió.</span></div>
+        <div class="rule"><svg class="ico"><use href="#nt-ico-037"/></svg><span>No inventan precios ni plazos, y si les preguntan dicen que son asistentes virtuales.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · RUTAS -->
+  <section class="slide" aria-label="Rutas del lead">
+    <div class="slide__inner">
+      <div class="head">
+        <div>
+          <p class="eyebrow rv" style="--d:0">03 · Rutas del lead</p>
+          <h2 class="title rv" style="--d:1">Ningún lead <em>queda sin respuesta</em></h2>
+        </div>
+        <img class="head__art art3d float rv" style="--d:2" src="assets/i3d/project-management.webp" alt="" aria-hidden="true" />
+      </div>
+      <div class="routes">
+        <div class="connector" aria-hidden="true"></div>
+        <div class="origin rv" style="--d:2"><svg class="ico"><use href="#nt-ico-021"/></svg>Envía el formulario</div>
+        <div class="branch rv" style="--d:3">
+          <span class="branch__tag"><svg class="ico"><use href="#nt-ico-017"/></svg>Camino A</span>
+          <h3>Escribe por WhatsApp</h3>
+          <ol class="path">
+            <li>María · Ads le responde y califica el proyecto</li>
+            <li class="goal">Agenda la reunión con Bastián</li>
+            <li>Pre-reunión: recordatorio 24 h y 1 h antes</li>
+          </ol>
+        </div>
+        <div class="branch rv" style="--d:4">
+          <span class="branch__tag"><svg class="ico"><use href="#nt-ico-002"/></svg>Camino B</span>
+          <h3>No escribe en 15 minutos</h3>
+          <ol class="path">
+            <li>María · Remarketing lo llama <small>&nbsp;y sigue por WhatsApp y correo</small></li>
+            <li>Insiste con criterio durante 7 días</li>
+            <li class="goal">Agenda la reunión con Bastián</li>
+          </ol>
+        </div>
+      </div>
+      <div class="exits rv" style="--d:5">
+        <span class="exits__label">Se cierran y quedan registrados</span>
+        <span class="pill">Bajo el mínimo</span><span class="pill">Fuera de Chile</span><span class="pill">No interesado</span><span class="pill">Sin respuesta en 7 días</span>
+        <span class="guard"><svg class="ico"><use href="#nt-ico-025"/></svg>L–V 9:00–19:00 · sáb 10:00–14:00 · máx. 15 contactos nuevos al día</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · MEDICIÓN -->
+  <section class="slide" aria-label="Medición">
+    <div class="slide__inner">
+      <div class="head">
+        <div>
+          <p class="eyebrow rv" style="--d:0">04 · Medición</p>
+          <h2 class="title rv" style="--d:1">Procesos visibles. <em>Decisiones mejores.</em></h2>
+          <p class="lead rv" style="--d:2">Jacinta envía dos reportes diarios a Telegram, en un tema solo para campañas.</p>
+        </div>
+        <img class="head__art art3d float rv" style="--d:2" src="assets/i3d/analytics.webp" alt="" aria-hidden="true" />
+      </div>
+      <div class="measure">
+        <div class="tg rv" style="--d:3">
+          <div class="tg__head"><img class="av" src="assets/marcas/jacinta.webp" alt="" /><div><b>Jacinta</b><span>Tema: Campañas Meta</span></div><img class="tg-logo" src="assets/marcas/telegram.svg" alt="Telegram" /></div>
+          <div class="tg__msgs">
+          <div class="msg rv" style="--d:4"><span class="msg__time"><svg class="ico"><use href="#nt-ico-002"/></svg>09:00 · Mañana</span><h4>Cómo van las campañas</h4><ul><li>Gasto</li><li>Leads</li><li>Costo por lead</li><li>Reuniones</li></ul></div>
+          <div class="msg rv" style="--d:5"><span class="msg__time"><svg class="ico"><use href="#nt-ico-002"/></svg>21:00 · Noche</span><h4>Qué pasó hoy</h4><ul><li>Leads por landing y anuncio</li><li>Contactados</li><li>Reuniones del día</li><li>Alertas</li></ul></div>
+          </div>
+          <div class="tg__foot rv" style="--d:6"><span class="pill pill--blue">Se activa al lanzar</span></div>
+        </div>
+        <div class="kpis">
+          <div class="kpi rv" style="--d:4"><strong><span data-count="1">1</span> min</strong><span><b>CRM sincronizado con Nexor</b>Las 24 horas, todos los días.</span></div>
+          <div class="kpi rv" style="--d:5"><strong data-count="2">2</strong><span><b>Reportes diarios en Telegram</b>Mañana y noche, sin abrir ningún panel.</span></div>
+          <div class="kpi rv" style="--d:6"><strong>24/7</strong><span><b>Registro de cada lead</b>Con su anuncio, landing y campaña de origen.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · FAQ -->
+  <section class="slide" aria-label="Preguntas frecuentes">
+    <div class="slide__inner">
+      <div class="head">
+        <div>
+          <p class="eyebrow rv" style="--d:0">05 · Preguntas frecuentes</p>
+          <h2 class="title rv" style="--d:1">Lo que <em>conviene saber</em></h2>
+        </div>
+        <img class="head__art art3d float rv" style="--d:2" src="assets/i3d/consulting.webp" alt="" aria-hidden="true" />
+      </div>
+      <div class="faq">
+        <div class="faq__col">
+          <details class="rv" style="--d:2" open><summary>¿Cuánto cuesta y quién controla el gasto?</summary><p>$10.000 diarios por servicio, cerca de $600.000 al mes por ambos. Se ajusta o se pausa en un clic desde Meta.</p></details>
+          <details class="rv" style="--d:4"><summary>¿Y si alguien deja sus datos y no escribe?</summary><p>A los 15 minutos lo contacta María · Remarketing, durante un máximo de 7 días.</p></details>
+          <details class="rv" style="--d:6"><summary>¿Cuándo sabremos si funciona?</summary><p>Meta aprende con los primeros leads. Revisamos costo por lead y reuniones a los 7 días, con los reportes diarios.</p></details>
+        </div>
+        <div class="faq__col">
+          <details class="rv" style="--d:3"><summary>¿Quién conversa con los leads?</summary><p>María, asistente virtual de Neisstech, por WhatsApp, llamada y correo. Bastián entra cuando hay reunión.</p></details>
+          <details class="rv" style="--d:5"><summary>¿Se puede contactar a alguien que no lo pidió?</summary><p>No. María solo contacta a quien dejó sus datos o escribió, respeta horarios y a quien pide no ser contactado.</p></details>
+          <details class="rv" style="--d:7"><summary>¿Dónde quedan los datos?</summary><p>En el CRM de Neisstech, en Nexor y en la hoja de Google de la campaña. El contacto comercial queda en Zoho.</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · LANZAMIENTO -->
+  <section class="slide" aria-label="Lanzamiento">
+    <div class="slide__inner">
+      <div class="head">
+        <div>
+          <p class="eyebrow rv" style="--d:0">06 · Lanzamiento</p>
+          <h2 class="title rv" style="--d:1">Todo listo <em>para activar</em></h2>
+        </div>
+      </div>
+      <div class="launch">
+        <div class="card list list--ok rv" style="--d:2">
+          <h3><svg class="ico"><use href="#nt-ico-037"/></svg>Listo y probado</h3>
+          <ul>
+            <li>Campaña creada en pausa: 2 conjuntos y 4 anuncios</li>
+            <li>Píxel y servidor envían el Lead a Meta</li>
+            <li>Formulario → Nexor, CRM y hoja de Google</li>
+            <li>María activa en sus tres etapas</li>
+            <li>CRM sincronizado cada minuto</li>
+          </ul>
+        </div>
+        <div class="card list list--wait rv" style="--d:3">
+          <h3><svg class="ico"><use href="#nt-ico-002"/></svg>Antes de activar</h3>
+          <ul>
+            <li>Prueba con César en la oficina: WhatsApp, María y reunión</li>
+            <li>Definir en qué momento entra cada lead a Zoho</li>
+            <li>Encender los reportes de Telegram</li>
+            <li>Plantillas nuevas de WhatsApp en revisión de Meta (no bloquean)</li>
+          </ul>
+        </div>
+        <div class="cta rv" style="--d:4" id="cta">
+          <img class="cta__art float" src="assets/brand/nt-ill-3d-02.svg" alt="" aria-hidden="true" />
+          <div><h3>¿Lanzamos?</h3><p>Con su visto bueno activamos hoy. La campaña se puede pausar en cualquier momento.</p></div>
+          <button class="btn btn--white" type="button" id="cta-btn">Dar el visto bueno</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<nav class="nav" aria-label="Navegación de diapositivas">
+  <div class="nav__dots" id="dots"></div>
+  <div class="nav__buttons">
+    <button class="nav__btn" id="prev" type="button" aria-label="Anterior"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18 9 12l6-6"/></svg></button>
+    <button class="nav__btn" id="next" type="button" aria-label="Siguiente"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+  </div>
+</nav>
+
+</div></div>
 <script src="deck.js"></script>
 </body>
 </html>
