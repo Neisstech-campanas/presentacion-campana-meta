@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="NT-ILL-3D-02" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 420" role="img" aria-labelledby="title desc">
+  <title id="title">Diana con dardo claymorphism isométrico</title>
+  <desc id="desc">Variante vectorial isométrica para aplicaciones sociales de Neisstech.</desc>
+  <defs>
+    <radialGradient id="whiteClay" cx="34%" cy="25%" r="78%"><stop offset="0" stop-color="#fff"/><stop offset=".72" stop-color="#f4f5f7"/><stop offset="1" stop-color="#cfd4db"/></radialGradient>
+    <radialGradient id="redClay" cx="32%" cy="24%" r="78%"><stop offset="0" stop-color="#ff8a8a"/><stop offset=".55" stop-color="#ef404b"/><stop offset="1" stop-color="#a81021"/></radialGradient>
+    <linearGradient id="dartBody" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1d2939"/><stop offset="1" stop-color="#050b12"/></linearGradient>
+    <filter id="softShadow" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#032452" flood-opacity=".32"/></filter>
+    <filter id="innerSoft" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="-5" dy="8" stdDeviation="7" flood-color="#6c0010" flood-opacity=".28"/></filter>
+  </defs>
+  <g transform="translate(18 80) rotate(-12 210 210) skewX(-15) scale(1 .78)">
+  <ellipse cx="220" cy="362" rx="154" ry="38" fill="#003e9e" opacity=".24"/>
+  <ellipse cx="222" cy="250" rx="148" ry="145" fill="#7a0717" opacity=".64" transform="translate(13 24)"/>
+  <g filter="url(#softShadow)" transform="rotate(-8 210 225)">
+    <circle cx="210" cy="230" r="142" fill="url(#redClay)"/>
+    <circle cx="210" cy="230" r="105" fill="url(#whiteClay)"/>
+    <circle cx="210" cy="230" r="70" fill="url(#redClay)" filter="url(#innerSoft)"/>
+    <circle cx="210" cy="230" r="32" fill="url(#whiteClay)"/>
+    <path d="M122 125c26-28 62-43 99-44" fill="none" stroke="#fff" stroke-width="13" stroke-linecap="round" opacity=".32"/>
+  </g>
+  <g transform="rotate(-43 280 125)" filter="url(#softShadow)">
+    <rect x="270" y="77" width="20" height="173" rx="10" fill="url(#dartBody)"/>
+    <path d="M280 40l23 48h-46z" fill="#181818"/>
+    <path d="M280 91l-42-34 10 44z" fill="#056cf2"/>
+    <path d="M280 91l42-34-10 44z" fill="#0088cd"/>
+    <path d="M280 251l-12-25h24z" fill="#dbe2ea"/>
+    <path d="M274 87c3-7 9-12 16-14" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".48"/>
+  </g>
+  </g>
+</svg>
